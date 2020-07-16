@@ -1,26 +1,29 @@
 <?php
 
+# first lets check if the form has been submitted:
 if ($_SERVER["REQUEST_METHOD"] === "POST")
 {
 		$username = $_POST["uname"];
 		$password = $_POST["pass"];
 		$reenter = $_POST["reenter"];
 		
+		#this condition will check if the fields are not empty
 		if (empty($username) && empty($password) && empty($reenter) && empty($gender))
 		{
 			echo "*Form fields are empty.<br>";
 		}
 
+		#this condition will check if the user input is not less than 2 characters long
 		if (strlen($username) < 2 || strlen($password) <2 || strlen($reenter) <2)
 		{
 			echo "*The input is not appropriate";
 		}
 
-
+		#if all conditions are met, the success page is launched.
 		else {
 			header("Location:success.php");
 		}
-		//ddjfnkjf
+		
 
 }
 
